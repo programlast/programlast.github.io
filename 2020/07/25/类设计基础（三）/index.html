@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>类设计基础（三） | Program Last!</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">类设计基础（三）</h1><a id="logo" href="/.">Program Last!</a><p class="description">Naive！还要提高自己的姿势水平...</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tags/"><i class="fa fa-tags"> 标签</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/timeline/"><i class="fa fa-book"> 历史</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">类设计基础（三）</h1><div class="post-meta">2020-07-25<span> | </span><span class="category"><a href="/categories/Tech/">Tech</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 1.6k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-clock-o"></i><span class="post-count"> 5</span><span class="post-meta-item-text"> 分钟</span></span></span></div><a class="disqus-comment-count" href="/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89/#vcomment"><span class="valine-comment-count" data-xid="/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#访问权限"><span class="toc-number">1.</span> <span class="toc-text">访问权限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#private修饰成员"><span class="toc-number">1.1.</span> <span class="toc-text">private修饰成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#public修饰成员"><span class="toc-number">1.2.</span> <span class="toc-text">public修饰成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#protected修饰成员"><span class="toc-number">1.3.</span> <span class="toc-text">protected修饰成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#默认的访问权限"><span class="toc-number">1.4.</span> <span class="toc-text">默认的访问权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#public修饰类"><span class="toc-number">1.5.</span> <span class="toc-text">public修饰类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对象组合"><span class="toc-number">2.</span> <span class="toc-text">对象组合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#嵌套类"><span class="toc-number">3.</span> <span class="toc-text">嵌套类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java的包"><span class="toc-number">4.</span> <span class="toc-text">Java的包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#package语句"><span class="toc-number">4.1.</span> <span class="toc-text">package语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#import语句"><span class="toc-number">4.2.</span> <span class="toc-text">import语句</span></a></li></ol></li></ol></div></div><div class="post-content"><h1 id="访问权限"><a href="#访问权限" class="headerlink" title="访问权限"></a>访问权限</h1><p>​        封装时用适当的保护修饰词就可以对域或方法起到保护作用。</p>
+<p>​        Java中保护修饰词包括private（私有的）、protected（保护的）和public（公有的），定义类时用这些修饰词就可以对域或方法设置保护权限。</p>
+<h2 id="private修饰成员"><a href="#private修饰成员" class="headerlink" title="private修饰成员"></a>private修饰成员</h2><p>​        用关键字private修饰的成员称为私有成员。private修饰域的形式：</p>
+<p>​            <strong>private 数据类型    域名;</strong></p>
+<p>​        private修饰方法的形式：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> 方法类型 方法名([形参表列]) &#123;</span><br><span class="line"><span class="comment">//……方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>私有成员只能被所在类中的方法访问，类外的其它任何方法或对象都不能访问，所以私有成员具有最高的保护权限。</em></strong></p>
+<p><strong><em>一般地，域的访问权限应该声明为private，以便对数据起到保护作用。</em></strong></p>
+<h2 id="public修饰成员"><a href="#public修饰成员" class="headerlink" title="public修饰成员"></a>public修饰成员</h2><p>​        用关键字public修饰的成员称为公有成员。public修饰域的形式：</p>
+<p>​            <strong>public    数据类型    域名;</strong></p>
+<p>​        public修饰方法的形式:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 方法类型 方法名([形参表列])	&#123;</span><br><span class="line"><span class="comment">//……方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><em>公有成员可以被所在类的其它方法访问；可以在类体外通过对象名直接访问；</em></strong></li>
+<li><strong><em>可以被同一包中或不同包中的子类继承，并且可以被子类中的方法直接访问；</em></strong></li>
+<li><strong><em>还可以在子类的类体外通过子类的对象名直接访问。一般地，成员方法的保护权限应该声明为public，以使对象能够与其它类的对象进行适当的通讯。</em></strong></li>
+</ul>
+<h2 id="protected修饰成员"><a href="#protected修饰成员" class="headerlink" title="protected修饰成员"></a>protected修饰成员</h2><p>​        用关键字protected修饰的成员称为保护成员。protected修饰域的形式：</p>
+<p>​            <strong>protected    数据类型    域名;</strong></p>
+<p>​        protected修饰方法的形式:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> 方法类型 方法名([形参表列]) &#123;</span><br><span class="line"><span class="comment">//……方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><em>保护成员可以被所在类的其它方法访问；</em></strong></li>
+<li><strong><em>被子类继承后，可以被子类中的方法直接访问；</em></strong></li>
+<li><strong><em>在同一个包中，在类体外可以通过对象名直接访问；</em></strong></li>
+<li><strong><em>不是同一包中的非子类，不能通过对象名直接访问（子类的概念参见第5章）。</em></strong></li>
+</ul>
+<h2 id="默认的访问权限"><a href="#默认的访问权限" class="headerlink" title="默认的访问权限"></a>默认的访问权限</h2><p>​        在域或方法前不加任何访问限定词，则域或方法的访问权限是默认的。</p>
+<ul>
+<li><p><strong><em>默认访问权限的域或方法可以被类中的其它方法直接访问；</em></strong></p>
+</li>
+<li><p><strong><em>在这个类所在的包中，可以在类体之外通过对象名直接访问。</em></strong></p>
+</li>
+<li><p><strong>默认的域或方法具有包的访问权限，利用包的访问权限，可以提高访问的灵活性。</strong></p>
+</li>
+</ul>
+<p>  表4.1列出了访问权限的作用范围。</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">同一个类</th>
+<th align="center">同一个包</th>
+<th align="center">不同包的子类</th>
+<th align="center">不同包的非子类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">private</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">默认的</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">protected</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">public</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
+<h2 id="public修饰类"><a href="#public修饰类" class="headerlink" title="public修饰类"></a>public修饰类</h2><p>​        关键字public还可以修饰类，使类成为公共类。</p>
+<p>​        公共类可以被任何其它包中的类访问，公共类中的公有成员也可以被任何其它包中的类访问。</p>
+<p>​        一个Java源程序文件中可以定义多个类，但是最多只能有一个类是public类。</p>
+<h1 id="对象组合"><a href="#对象组合" class="headerlink" title="对象组合"></a>对象组合</h1><p><strong><em>如果一个类中的域是由其它类所定义的对象，这个类称为组合类，组合类所定义的对象称为组合对象。</em></strong></p>
+<p><strong><em>通过对象组合，可以实现代码重用，可以使复杂问题简单化。</em></strong></p>
+<h1 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h1><p>​        在类的内部还可以定义类，称为嵌套类（nested classes）。</p>
+<p>​        如果嵌套类前面有关键字static，则称为静态嵌套类（static nested classes），否则称为内部类（inner classes）。</p>
+<p>​        内部类又可以分局部类（local classes）和匿名类（anonymous classes）。</p>
+<p>​        在方法中可以<strong>定义类</strong>，这样的类称为<strong>局部类</strong>。匿名类实际上是一个类的子类，关于匿名类的内容参见第5章。</p>
+<p>​        如果一个类只在某一个地方使用一次，则应定义为内部类。使用内部类可以提高封装性、可读性和可维护性，因为类的定义与使用在一起（它们“距离比较近”）。</p>
+<p>​        嵌套类的定义形式与非嵌套类的定义形式基本相同，在嵌套类中可以定义域和方法。</p>
+<p>​        <strong><em>可以将嵌套的类看作外层类中的一个成员，所以它可以访问外层类中的任何成员。</em></strong></p>
+<h1 id="Java的包"><a href="#Java的包" class="headerlink" title="Java的包"></a>Java的包</h1><p>​        package用于定义包，import用引入包中的类。</p>
+<p>​        包是对类的一种管理方式。开发Java程序时，可以将功能相近或相似的类放在一个包中，其它功能相近或相似的类再放在另一个包中，如同管理文件、对文件进行分类。</p>
+<p>​        如果想使用包中已经有的类，可以使用import语句。import引入类后，就相当于在当前类中定义了相应的类，在程序中就可以用类创建对象了。</p>
+<h2 id="package语句"><a href="#package语句" class="headerlink" title="package语句"></a>package语句</h2><p>​        package语句可以将当前程序文件中的类放到指定的包中。它的使用形式：</p>
+<p>​            <strong>package    包名[.子包名1[.子包名2[……]]];</strong></p>
+<p>​        <em>package必须放在第一行，而且最多只能有一条package语句。</em></p>
+<p>​        如果程序中没有package，则将类放在源文件所在的文件夹中（默认包）。</p>
+<h2 id="import语句"><a href="#import语句" class="headerlink" title="import语句"></a>import语句</h2><p>​        import将其它包中的类引入当前程序文件中。它的使用形式：</p>
+<p>​            <strong>import    包名[.子包名1[.子包名2[…]]].类名;</strong></p>
+<p>​        将包中名为“类名”的类引入到当前程序文件中。或：</p>
+<p>​            <strong>import    包名[.子包名1[.子包名2[…]]].*;</strong></p>
+<p>​        将“包名”（或“子包n”）包中的所有类引入到当前程序文件中，但不包括“包名”（或“子包n”）中的子包。</p>
+<p>​        import static使用形式：</p>
+<p>​            <strong>import static 类名.静态成员;</strong></p>
+<p>​        可以将“类名”类中的“静态成员”引入到当前程序中，然后直接使用“静态成员”就可以了。或：</p>
+<p>​            <strong>import static 类名.*;</strong></p>
+<p>​        可以将“类名”类中的所有静态成员引入到当前程序中。</p>
+<p>例：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*;<span class="comment">//引入System中的所有静态成员</span></span><br><span class="line">​	<span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.<span class="literal">PI</span>;<span class="comment">//只引入Math类中的静态域PI</span></span><br><span class="line">​	<span class="keyword">import</span> <span class="keyword">static</span> java.util.Arrays.<span class="built_in">sort</span>;<span class="comment">//只引入Arrays类中的静态方法sort</span></span><br></pre></td></tr></table></figure>
+
+</div><div class="tags"><a href="/tags/SE/"><i class="fa fa-tag"></i>SE</a></div><div class="post-nav"><a class="next" href="/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/">类设计基础（二）</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'',
+  appKey:'',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a><span class="category-list-count">3</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89/">类设计基础（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/">类设计基础（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/">类设计基础（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/25/Test2/">Test2</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/23/Test1/">Test1</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/07/23/hello-world/">Hello World</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">Program Last!.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=0.0.0"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

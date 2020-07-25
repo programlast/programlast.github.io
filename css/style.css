@@ -22,7 +22,7 @@ textarea,
   font-family: "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif !important; }
 
 body {
-  background-color: #FFF;
+  background-color: #ffF;
   color: #444;
   font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -231,7 +231,7 @@ div {
     word-break: normal; }
     .post .post-content h2 {
       margin: 1.4em 0 1.1em;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #ddd;
       overflow: hidden; }
     .post .post-content h3 {
       margin: 1.4em 0 1.1em; }
@@ -263,7 +263,7 @@ div {
     .post .post-content hr {
       margin: 2.4em auto;
       border: none;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #ddd;
       position: relative; }
     .post .post-content img {
       max-width: 100%;
@@ -332,7 +332,7 @@ div {
     height: 25px;
     line-height: 25px;
     padding: 5px 9px;
-    border: 1px solid #DDD;
+    border: 1px solid #ddd;
     text-align: center; }
     .page-navigator a:hover,
     .page-navigator span:hover {
@@ -654,7 +654,7 @@ pre {
 
 #process .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
   position: relative;
-  background: #eee;
+  background: #ddd;
   padding: 30px;
   margin-left: 60px;
   -webkit-background-clip: padding-box;
@@ -672,7 +672,7 @@ pre {
   height: 0;
   border-style: solid;
   border-width: 9px 9px 9px 0;
-  border-color: transparent #eee transparent transparent;
+  border-color: transparent #ddd transparent transparent;
   left: 0;
   top: 50%;
   margin-top: -9px;
@@ -682,7 +682,7 @@ pre {
   position: absolute;
   display: block;
   width: 4px;
-  background: #eee;
+  background: #ddd;
   top: -3%;
   right: -30px;
   bottom: -3%; }
@@ -694,7 +694,7 @@ pre {
   font-style: italic;
   color: #333;
   padding: 10px;
-  background-color: #eee;
+  background-color: #ddd;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px; }
@@ -709,7 +709,7 @@ pre {
   width: 0;
   position: absolute;
   border-color: rgba(136, 183, 213, 0);
-  border-left-color: #eee;
+  border-left-color: #ddd;
   border-width: 10px;
   margin-top: -10px; }
 
@@ -738,7 +738,7 @@ pre {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 3px solid #eee; }
+  border: 3px solid #ddd; }
 
 #process .dot_bt {
   position: absolute;
@@ -751,7 +751,7 @@ pre {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  border: 3px solid #eee; }
+  border: 3px solid #ddd; }
 
 @media (max-width: 768px) {
   #process .line {
@@ -1313,7 +1313,7 @@ figure.highlight,
   margin-bottom: 20px;
   padding: 10px;
   white-space: nowrap;
-  border-top: 1px solid #eee; }
+  border-top: 1px solid #ddd; }
   .post-nav a {
     display: inline-block;
     line-height: 25px;
@@ -1424,7 +1424,7 @@ table {
 
 .article-share-links {
   clearfix: none;
-  background: #eee; }
+  background: #ddd; }
 
 .article-share-element, .article-share-twitter, .article-share-facebook, .article-share-weibo, .article-share-qrcode {
   width: 50px;
