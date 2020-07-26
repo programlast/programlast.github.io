@@ -50,6 +50,75 @@
       </categories>
   </entry>
   <entry>
+    <title>类设计基础（一）</title>
+    <url>/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>​        类是对某一类事物的抽象描述，对象是某一类中一个或多个具体的事物。</p>
+<p>​        类和对象在使用前必须先定义后使用，如同变量的定义和使用。</p>
+<h2 id="封装和隐藏"><a href="#封装和隐藏" class="headerlink" title="封装和隐藏"></a>封装和隐藏</h2><p><u>        封装</u>就是将对象的属性（域/数据）和行为（方法/函数）定义在一起，形成一个集合。封装的结果得到一个类。</p>
+<p>例如： 对学生类的封装：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String id;<span class="comment">//学号</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">//姓名</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">char</span> gender;<span class="comment">//性别</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">float</span> score;<span class="comment">//成绩</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;<span class="comment">//……&#125;//方法，显示学生信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        封装并不是简单地将对象的属性和行为定义在一起，而是要对属性和行为起到一定的保护作用，这种保护作用称<u>隐藏</u>。</p>
+<p>​        不同类的对象封装的结果不同，即使是同一类的对象在不同环境（系统）中封装结果也会不同。</p>
+<h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名 </span>&#123;</span><br><span class="line">	域列表;</span><br><span class="line">	方法列表;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">​	<span class="keyword">int</span> x,y;<span class="comment">//域，点的位置</span></span><br><span class="line">​	<span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span> </span>&#123; <span class="comment">//方法，获得x分量</span></span><br><span class="line">​		<span class="keyword">return</span> x;</span><br><span class="line">​	&#125;</span><br><span class="line">    </span><br><span class="line">​	<span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span> </span>&#123; <span class="comment">//方法，获得y分量</span></span><br><span class="line">​		<span class="keyword">return</span> y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> offsetX,<span class="keyword">int</span> offsetY)</span></span></span><br><span class="line"><span class="function">	</span>&#123; <span class="comment">//方法，对点平移</span></span><br><span class="line">​		x+=offsetX;</span><br><span class="line">​		y+=offsetY;</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="域的定义"><a href="#域的定义" class="headerlink" title="域的定义"></a>域的定义</h2><p>​        域的最基本定义方法与变量定义一样。它的基本定义形式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">数据类型 域名<span class="number">1</span>[=初值<span class="number">1</span>],域名<span class="number">2</span>[=初值<span class="number">2</span>],……,域名n[=初值n];</span><br></pre></td></tr></table></figure>
+
+<p>​        定义域时可以给出域的初值。在定义域时，如果不给出域的初值，域也会被初始化。</p>
+<p>​        域的定义形式与一般变量的定义基本相同。但是域定义在类中，是类的成员，可以称<strong>成员变量</strong>，一般变量是定义在方法中，称为<strong>局部变量</strong>。它们的作用范围不同。</p>
+<h2 id="方法定义"><a href="#方法定义" class="headerlink" title="方法定义"></a>方法定义</h2><h3 id="方法的类型"><a href="#方法的类型" class="headerlink" title="方法的类型"></a>方法的类型</h3><p>​        方法用于对数据进行的处理。</p>
+<p>​        一般地，数据处理完成后应将处理的结果数据返回。如果返回数据，该数据一定有类型，这个类型就是定义方法时声明的“方法类型”。所以，<strong>“方法类型”是方法返回值的类型</strong>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">方法类型 方法名(形式参数表列) &#123; <span class="comment">//形参为变量，可有可无；调用方法后输出的参数为实参。</span></span><br><span class="line">​	<span class="comment">//方法体——若干语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="return语句"><a href="#return语句" class="headerlink" title="return语句"></a>return语句</h3><p>​        return语句用在方法中。当执行到return语句时，这个方法执行结束并返回到上一个方法的调用处。</p>
+<p>​        方法的返回值可用return语句实现。return语句的使用方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> 表达式;</span><br></pre></td></tr></table></figure>
+
+<p>​        方法也可以不返回值。如果方法不返回值，则定义方法时应该将“方法类型”声明为“void”，明确表示该方法不返回值。</p>
+<p>​    <strong>如果方法的类型为“void”，则在方法中一定不能有语句“return 表达式;”</strong>，但是可以使用语句：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h3><p>​        “方法名”是方法的标识，执行一个方法是通过“方法名”完成的。</p>
+<h3 id="形式参数列表"><a href="#形式参数列表" class="headerlink" title="形式参数列表"></a>形式参数列表</h3><p>​        如果执行一个方法时，需要给方法一些原始数据，则可以通过“形式参数列表”来完成。</p>
+<p>​        “形式参数表列”的形式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">数据类型<span class="number">1</span> 形式参数<span class="number">1</span>, 数据类型<span class="number">2</span> 形式参数<span class="number">2</span>,……,数据类型n 形式参数n</span><br></pre></td></tr></table></figure>
+
+<p>​        根据需要，“形式参数列表”可以有也可以没有。如果定义方法时没有“形式参数列表”，则执行方法不需要给出实际数据；否则，一定要给出相应的实际数据。</p>
+<p>​        调用方法时给出的参数称为实际数据。实际数据又称“实际参数”（简称实参），<strong>实参可以是常量、变量或表达式，但形参一定是变量。</strong></p>
+<h3 id="方法体"><a href="#方法体" class="headerlink" title="方法体"></a>方法体</h3><p>​        “方法体”是方法的具体实现。想让方法完成什么样的运算，就可以在方法体中定义相应的语句。</p>
+<h3 id="方法执行"><a href="#方法执行" class="headerlink" title="方法执行"></a>方法执行</h3><p>​        执行一个方法称为方法的调用。</p>
+<h2 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h2><p>​        在一个作用域（如一个类中）内定义的多个同名方法称为<strong>方法的重载</strong>。</p>
+<p>​        方法重载时要求方法的形式参数互不相同，如形参个数互不相同，或者形参个数相同，但只要有一对对应的参数的类型不同。</p>
+<p>​        方法重载不能靠“方法类型”来区分。</p>
+<p>​        当方法调用时，只要给出实际参数，运行时系统就会自动调用相应的方法而不需程序判断。<br>一般地，具有相似性质或功能的运算用重载方法。</p>
+<p>例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">//三个重载方法的形参互不相同</span></span><br><span class="line">	<span class="keyword">return</span> x&gt;y?x:y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m=max(x,y);<span class="comment">//调用第1个max方法找前两个数最大数</span></span><br><span class="line">​	<span class="keyword">return</span> m&gt;z?m:z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a[])</span> </span>&#123;</span><br><span class="line">​	<span class="keyword">int</span> m=a[<span class="number">0</span>];</span><br><span class="line">​	<span class="keyword">for</span>(<span class="keyword">int</span> x:a)</span><br><span class="line">​		m=m&gt;x?m:x; </span><br><span class="line">		<span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法的递归"><a href="#方法的递归" class="headerlink" title="方法的递归"></a>方法的递归</h2><p>​        方法的调用有两种形式，一种是<strong>嵌套调用</strong>，另一种是<strong>递归调用</strong>。</p>
+<p>​        递归方法是一个方法在执行过程中直接或间接调用了自身。通过递归调用，可以将问题简化为规模缩小了的同类问题的子问题。</p>
+<p>​        使用方法递归调用时，应满足三个要求：</p>
+<ul>
+<li><p>一是每一次的调用都会使问题得到简化；</p>
+</li>
+<li><p>二是前后调用应该有一定的关系，通常是前一次调用要为后一次调用准备好条件（数据）；</p>
+</li>
+<li><p>三是在问题规模极小时应该终止递归调用，以避免无限递归调用，也就是应该有递归调用结束的条件。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>基础知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>类设计基础（二）</title>
     <url>/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h2 id="对象的声明与创建"><a href="#对象的声明与创建" class="headerlink" title="对象的声明与创建"></a>对象的声明与创建</h2><p>​        定义了类之后，就可以用类定义对象（object）了。对象又可以称为实例（instance）。</p>
@@ -247,75 +316,6 @@
 <p>例：</p>
 <figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">	<span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*;<span class="comment">//引入System中的所有静态成员</span></span><br><span class="line">​	<span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.<span class="literal">PI</span>;<span class="comment">//只引入Math类中的静态域PI</span></span><br><span class="line">​	<span class="keyword">import</span> <span class="keyword">static</span> java.util.Arrays.<span class="built_in">sort</span>;<span class="comment">//只引入Arrays类中的静态方法sort</span></span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>基础知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>类设计基础（一）</title>
-    <url>/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>​        类是对某一类事物的抽象描述，对象是某一类中一个或多个具体的事物。</p>
-<p>​        类和对象在使用前必须先定义后使用，如同变量的定义和使用。</p>
-<h2 id="封装和隐藏"><a href="#封装和隐藏" class="headerlink" title="封装和隐藏"></a>封装和隐藏</h2><p><u>        封装</u>就是将对象的属性（域/数据）和行为（方法/函数）定义在一起，形成一个集合。封装的结果得到一个类。</p>
-<p>例如： 对学生类的封装：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String id;<span class="comment">//学号</span></span><br><span class="line">	<span class="keyword">private</span> String name;<span class="comment">//姓名</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">char</span> gender;<span class="comment">//性别</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//年龄</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">float</span> score;<span class="comment">//成绩</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;<span class="comment">//……&#125;//方法，显示学生信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​        封装并不是简单地将对象的属性和行为定义在一起，而是要对属性和行为起到一定的保护作用，这种保护作用称<u>隐藏</u>。</p>
-<p>​        不同类的对象封装的结果不同，即使是同一类的对象在不同环境（系统）中封装结果也会不同。</p>
-<h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名 </span>&#123;</span><br><span class="line">	域列表;</span><br><span class="line">	方法列表;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">​	<span class="keyword">int</span> x,y;<span class="comment">//域，点的位置</span></span><br><span class="line">​	<span class="function"><span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span> </span>&#123; <span class="comment">//方法，获得x分量</span></span><br><span class="line">​		<span class="keyword">return</span> x;</span><br><span class="line">​	&#125;</span><br><span class="line">    </span><br><span class="line">​	<span class="function"><span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span> </span>&#123; <span class="comment">//方法，获得y分量</span></span><br><span class="line">​		<span class="keyword">return</span> y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> offsetX,<span class="keyword">int</span> offsetY)</span></span></span><br><span class="line"><span class="function">	</span>&#123; <span class="comment">//方法，对点平移</span></span><br><span class="line">​		x+=offsetX;</span><br><span class="line">​		y+=offsetY;</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="域的定义"><a href="#域的定义" class="headerlink" title="域的定义"></a>域的定义</h2><p>​        域的最基本定义方法与变量定义一样。它的基本定义形式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">数据类型 域名<span class="number">1</span>[=初值<span class="number">1</span>],域名<span class="number">2</span>[=初值<span class="number">2</span>],……,域名n[=初值n];</span><br></pre></td></tr></table></figure>
-
-<p>​        定义域时可以给出域的初值。在定义域时，如果不给出域的初值，域也会被初始化。</p>
-<p>​        域的定义形式与一般变量的定义基本相同。但是域定义在类中，是类的成员，可以称<strong>成员变量</strong>，一般变量是定义在方法中，称为<strong>局部变量</strong>。它们的作用范围不同。</p>
-<h2 id="方法定义"><a href="#方法定义" class="headerlink" title="方法定义"></a>方法定义</h2><h3 id="方法的类型"><a href="#方法的类型" class="headerlink" title="方法的类型"></a>方法的类型</h3><p>​        方法用于对数据进行的处理。</p>
-<p>​        一般地，数据处理完成后应将处理的结果数据返回。如果返回数据，该数据一定有类型，这个类型就是定义方法时声明的“方法类型”。所以，<strong>“方法类型”是方法返回值的类型</strong>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">方法类型 方法名(形式参数表列) &#123; <span class="comment">//形参为变量，可有可无；调用方法后输出的参数为实参。</span></span><br><span class="line">​	<span class="comment">//方法体——若干语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="return语句"><a href="#return语句" class="headerlink" title="return语句"></a>return语句</h3><p>​        return语句用在方法中。当执行到return语句时，这个方法执行结束并返回到上一个方法的调用处。</p>
-<p>​        方法的返回值可用return语句实现。return语句的使用方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> 表达式;</span><br></pre></td></tr></table></figure>
-
-<p>​        方法也可以不返回值。如果方法不返回值，则定义方法时应该将“方法类型”声明为“void”，明确表示该方法不返回值。</p>
-<p>​    <strong>如果方法的类型为“void”，则在方法中一定不能有语句“return 表达式;”</strong>，但是可以使用语句：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法名"><a href="#方法名" class="headerlink" title="方法名"></a>方法名</h3><p>​        “方法名”是方法的标识，执行一个方法是通过“方法名”完成的。</p>
-<h3 id="形式参数列表"><a href="#形式参数列表" class="headerlink" title="形式参数列表"></a>形式参数列表</h3><p>​        如果执行一个方法时，需要给方法一些原始数据，则可以通过“形式参数列表”来完成。</p>
-<p>​        “形式参数表列”的形式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">数据类型<span class="number">1</span> 形式参数<span class="number">1</span>, 数据类型<span class="number">2</span> 形式参数<span class="number">2</span>,……,数据类型n 形式参数n</span><br></pre></td></tr></table></figure>
-
-<p>​        根据需要，“形式参数列表”可以有也可以没有。如果定义方法时没有“形式参数列表”，则执行方法不需要给出实际数据；否则，一定要给出相应的实际数据。</p>
-<p>​        调用方法时给出的参数称为实际数据。实际数据又称“实际参数”（简称实参），<strong>实参可以是常量、变量或表达式，但形参一定是变量。</strong></p>
-<h3 id="方法体"><a href="#方法体" class="headerlink" title="方法体"></a>方法体</h3><p>​        “方法体”是方法的具体实现。想让方法完成什么样的运算，就可以在方法体中定义相应的语句。</p>
-<h3 id="方法执行"><a href="#方法执行" class="headerlink" title="方法执行"></a>方法执行</h3><p>​        执行一个方法称为方法的调用。</p>
-<h2 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h2><p>​        在一个作用域（如一个类中）内定义的多个同名方法称为<strong>方法的重载</strong>。</p>
-<p>​        方法重载时要求方法的形式参数互不相同，如形参个数互不相同，或者形参个数相同，但只要有一对对应的参数的类型不同。</p>
-<p>​        方法重载不能靠“方法类型”来区分。</p>
-<p>​        当方法调用时，只要给出实际参数，运行时系统就会自动调用相应的方法而不需程序判断。<br>一般地，具有相似性质或功能的运算用重载方法。</p>
-<p>例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123; <span class="comment">//三个重载方法的形参互不相同</span></span><br><span class="line">	<span class="keyword">return</span> x&gt;y?x:y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> m=max(x,y);<span class="comment">//调用第1个max方法找前两个数最大数</span></span><br><span class="line">​	<span class="keyword">return</span> m&gt;z?m:z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a[])</span> </span>&#123;</span><br><span class="line">​	<span class="keyword">int</span> m=a[<span class="number">0</span>];</span><br><span class="line">​	<span class="keyword">for</span>(<span class="keyword">int</span> x:a)</span><br><span class="line">​		m=m&gt;x?m:x; </span><br><span class="line">		<span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法的递归"><a href="#方法的递归" class="headerlink" title="方法的递归"></a>方法的递归</h2><p>​        方法的调用有两种形式，一种是<strong>嵌套调用</strong>，另一种是<strong>递归调用</strong>。</p>
-<p>​        递归方法是一个方法在执行过程中直接或间接调用了自身。通过递归调用，可以将问题简化为规模缩小了的同类问题的子问题。</p>
-<p>​        使用方法递归调用时，应满足三个要求：</p>
-<ul>
-<li><p>一是每一次的调用都会使问题得到简化；</p>
-</li>
-<li><p>二是前后调用应该有一定的关系，通常是前一次调用要为后一次调用准备好条件（数据）；</p>
-</li>
-<li><p>三是在问题规模极小时应该终止递归调用，以避免无限递归调用，也就是应该有递归调用结束的条件。</p>
-</li>
-</ul>
 ]]></content>
       <categories>
         <category>技术</category>
