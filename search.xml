@@ -18,17 +18,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Test2</title>
-    <url>/2020/07/25/Test2/</url>
-    <content><![CDATA[<img src="/images/Test2/avatar.jpg" alt="avatar" style="zoom:33%;" />]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/07/23/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -48,6 +37,17 @@
       <categories>
         <category>Hexo</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Test2</title>
+    <url>/2020/07/25/Test2/</url>
+    <content><![CDATA[<img src="/images/Test2/avatar.jpg" alt="avatar" style="zoom:33%;" />]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
   </entry>
   <entry>
     <title>类设计基础（一）</title>
@@ -109,90 +109,6 @@
 <li><p>三是在问题规模极小时应该终止递归调用，以避免无限递归调用，也就是应该有递归调用结束的条件。</p>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>基础知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>类设计基础（二）</title>
-    <url>/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h2 id="对象的声明与创建"><a href="#对象的声明与创建" class="headerlink" title="对象的声明与创建"></a>对象的声明与创建</h2><p>​        定义了类之后，就可以用类定义对象（object）了。对象又可以称为实例（instance）。</p>
-<h3 id="对象的声明"><a href="#对象的声明" class="headerlink" title="对象的声明"></a>对象的声明</h3><p>​        对象声明的形式：</p>
-<p>​            <strong>类（名）    对象名表列;</strong><br>例如：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Point p1,p2;</span><br></pre></td></tr></table></figure>
-
-<p>​        声明对象后还必须创建对象才能使用对象。</p>
-<h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p>​        对象创建的形式：</p>
-<p>​            <strong>new    构造方法()</strong><br>如：</p>
-<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Point</span>();</span><br></pre></td></tr></table></figure>
-
-<p>​        可以通过赋值的形式给这个对象一个名字。如前面定义的对象名p1，可以用p1表示创建的对象：</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">p1</span> = new Point()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a>对象的使用</h2><p>​        使用对象的形式：</p>
-<p>​            <strong>对象名.域</strong></p>
-<p>​            <strong>对象名.方法名([实际参数表列])</strong></p>
-<p><strong><em>创建一个对象后，这个对象就有自己的属性和行为。通过对象名访问域或方法，只能是对象本身的域或方法，而不能是其它对象的域或方法。</em></strong></p>
-<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><p>​        创建对象时通过<em>“new”</em>运算符调用类中的构造方法。如果类中没有相应的构造方法，则不能创建对象。所以，在定义类时应该定义<strong>构造方法</strong>。</p>
-<p><strong><em>在一个类中可以定义多个构造方法，形成构造方法的重载。</em></strong></p>
-<p><strong><em>利用重载的构造方法可以创建不同初始状态的对象。</em></strong></p>
-<p>​        构造方法的定义形式：</p>
-<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">方法名<span class="comment">([形参表列])</span> &#123;</span><br><span class="line"><span class="comment">//…..方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="对象的内存模型"><a href="#对象的内存模型" class="headerlink" title="对象的内存模型"></a>对象的内存模型</h2><p>​        语句：</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">p2</span> = new Point(<span class="number">5</span>,<span class="number">8</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-
-<p>​        创建一个Point类的对象并用对象名p2表示。</p>
-<p>​        用对象名表示对象，就是对象在内存中的表示方法。如图4-7所示。</p>
-<img src="/images/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/%E5%9B%BE4-7%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png" alt="图4-7 对象的内存模型" style="zoom:67%;" />
-
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>​        this是当前对象，也可以看作是当前对象的别名（当前对象名）。</p>
-<p>​        哪一对象调用这个方法，this就表示的是哪一个对象。</p>
-<p>​        因为<strong><em>当局部变量与域名重名时，在方法中只能访问到局部变量。如果想访问同名的域，就需要在域名前加上this，表示是当前对象中的域，而不是局部变量。</em></strong></p>
-<p>例：</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">​	<span class="keyword">int</span> x,y;<span class="comment">//域，点的位置</span></span><br><span class="line">​	Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y) &#123; <span class="comment">//有两个参数的构造方法</span></span><br><span class="line">​		<span class="keyword">this</span>.x = x;</span><br><span class="line">​		<span class="keyword">this</span>.y = y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		System.out.<span class="built_in">println</span>(<span class="string">"("</span>+x+<span class="string">","</span>+y+<span class="string">")"</span>);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><h3 id="基本数据类型作方法的参数"><a href="#基本数据类型作方法的参数" class="headerlink" title="基本数据类型作方法的参数"></a>基本数据类型作方法的参数</h3><p>​        如果参数是基本数据类型，当这个方法被调用时，运行时系统会为形式参数开辟新的存储单元。所以，即使实际参数是一个变量，它与形参也不是同一个存储单元，形参的值改变了，实际参数的值不会变化。</p>
-<h3 id="对象名作方法的参数"><a href="#对象名作方法的参数" class="headerlink" title="对象名作方法的参数"></a>对象名作方法的参数</h3><p>​        因为对象名的值就是对象在内存中的地址，所以，当对象名作方法的参数时，是将对象的地址传递到被调方法中。这样，在被调用方法中的形参与主调方法中的实参指的是同一个对象。</p>
-<h3 id="数组名作方法的参数"><a href="#数组名作方法的参数" class="headerlink" title="数组名作方法的参数"></a>数组名作方法的参数</h3><p>数组名表示数组在内存中的起始地址。所以用数组名作方法的参数时，是将数组在内存中的<strong>起始地址</strong>传递到被调方法中，在被调用方法中就可以通过数组起始地址访问到数组中的每一个元素。</p>
-<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><h3 id="对象数组的定义"><a href="#对象数组的定义" class="headerlink" title="对象数组的定义"></a>对象数组的定义</h3><p>​        先声明一个对象数组名。声明形式：</p>
-<p>​            <strong>类名    对象数组名[];</strong></p>
-<p>​        再创建对象数组，形式：</p>
-<p>​            <strong>对象数组名    =    new 类名[数组长度];</strong></p>
-<p>​        例如，平面上有若干个点，可以用一个点类的对象数组表示：</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="type">Point</span> p[] = <span class="built_in">new</span> <span class="type">Point</span>[<span class="number">10</span>]; //是否与<span class="type">Point</span> p[]; p[]=<span class="built_in">new</span> <span class="type">Point</span>[<span class="number">10</span>];等价？</span><br></pre></td></tr></table></figure>
-
-<p>​        还需要调用构造方法创建每一个对象。例如，让对象数组p中的每个元素都表示一个对象，可以使用循环：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;p.<span class="built_in">length</span>;<span class="built_in">i</span>++)</span><br><span class="line">	p[<span class="built_in">i</span>]=new Point();</span><br></pre></td></tr></table></figure>
-
-<h3 id="对象数组初始化"><a href="#对象数组初始化" class="headerlink" title="对象数组初始化"></a>对象数组初始化</h3><p>​        在声明数组时就使数组中的每一个元素表示一个对象，称为对象数组初始化。        </p>
-<p>​        对象数组初始化形式：</p>
-<p>​            <strong>类名    对象数组名[]    =    {对象表列};</strong></p>
-<h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><p>​        关键字static用于修饰域和方法。用static修饰的域和方法称为类域和类方法，或称为静态域和静态方法。</p>
-<h3 id="static修饰域"><a href="#static修饰域" class="headerlink" title="static修饰域"></a>static修饰域</h3><p>​        这种方式有两个缺点，一个是容易遗漏，二是没有做到数据封装。</p>
-<p>​        将计数器变量定义在类中，每创建一个对象时，就在构造方法中使计数器增1，这样可以保证不遗漏，并做到数据封装。</p>
-<p>​        <em>程序中共创建了5个对象，每个对象的counter都是1。采用这种封装方式也达不到目的。</em></p>
-<p>​        <em>可以用关键字static修饰域。当用static修饰一个或多个域后，不论用这个类创建多少个对象，这些对象都有共同的一个或多个域，而不是每个对象独有的域。</em></p>
-<p>​        声明静态域的形式：</p>
-<p>​        数据类型 static 域名[=初值];</p>
-<p>​        一次可以声明多个静态域，默认值（不初始化）为0。</p>
-<p>​        因为静态域是一个类的所有对象的共同属性，所以又可以将静态域称为类域，可以通过类名直接访问，如例4-16中：</p>
-<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">​	<span class="keyword">int</span> x,y;</span><br><span class="line">​	**<span class="keyword">static</span> <span class="keyword">int</span> counter=<span class="number">0</span>;**<span class="comment">//不初始化也是0（默认）</span></span><br><span class="line"></span><br><span class="line">​	Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y) &#123;</span><br><span class="line">​		<span class="keyword">this</span>.x=x;</span><br><span class="line">​		<span class="keyword">this</span>.y=y;</span><br><span class="line">​		counter++;<span class="comment">//创建对象后增加1</span></span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		System.out.<span class="built_in">println</span>(<span class="string">"("</span>+x+<span class="string">","</span>+y+<span class="string">")"</span>);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example4_16</span> &#123;</span></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span> args[])</span> </span>&#123;</span><br><span class="line">​		<span class="comment">//可以通过类名访问静态域</span></span><br><span class="line">​		System.out.<span class="built_in">println</span>(<span class="string">"开始时对象数："</span>+**Point.counter**);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​        多数情况下应该通过类名访问，因为是类的属性。</p>
-<h3 id="static修饰方法"><a href="#static修饰方法" class="headerlink" title="static修饰方法"></a>static修饰方法</h3><p>​        static修饰的方法称为类方法或静态方法，可以通过对象名访问，更多的是通过类名访问。</p>
-<p>​        定义类方法的主要目的是用类方法访问类域。定义类方法的形式：</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">static 方法类型 方法名(<span class="selector-attr">[形参表列]</span>) &#123;</span><br><span class="line"><span class="comment">//……方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Deprecated注解"><a href="#Deprecated注解" class="headerlink" title="@Deprecated注解"></a>@Deprecated注解</h2><p>​        注解用于对程序或数据进行说明。</p>
-<p>​        @Deprecated是注解中的一种，表示它所注解的域或方法已经过时，不建议再使用。当然，使用也可以。<br>使用时，将“@Deprecated”放在被注解的域或方法的前面。</p>
-<p>例：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">​	<span class="keyword">int</span> x,y;</span><br><span class="line">​	<span class="meta">@Deprecated</span><span class="comment">//表示counter过时</span></span><br><span class="line">​	<span class="keyword">static</span> <span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">​	Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y) &#123;</span><br><span class="line">​		setPosition(x,y);</span><br><span class="line">​		counter++;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">void</span> <span class="title">setPosition</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">​		<span class="keyword">this</span>.x=x;</span><br><span class="line">​		<span class="keyword">this</span>.y=y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="meta">@Deprecated</span><span class="comment">//表示move方法过时</span></span><br><span class="line">​	<span class="function"><span class="keyword">void</span> <span class="title">moveTo</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><span class="comment">//移动到(x,y) &#123;</span></span></span><br><span class="line"><span class="function">​		<span class="keyword">this</span>.x</span>=x;</span><br><span class="line">​		<span class="keyword">this</span>.y=y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		System.out.println(<span class="string">"("</span>+x+<span class="string">","</span>+y+<span class="string">")"</span>);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -316,6 +232,90 @@
 <p>例：</p>
 <figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">	<span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*;<span class="comment">//引入System中的所有静态成员</span></span><br><span class="line">​	<span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.<span class="literal">PI</span>;<span class="comment">//只引入Math类中的静态域PI</span></span><br><span class="line">​	<span class="keyword">import</span> <span class="keyword">static</span> java.util.Arrays.<span class="built_in">sort</span>;<span class="comment">//只引入Arrays类中的静态方法sort</span></span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>基础知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>类设计基础（二）</title>
+    <url>/2020/07/25/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h2 id="对象的声明与创建"><a href="#对象的声明与创建" class="headerlink" title="对象的声明与创建"></a>对象的声明与创建</h2><p>​        定义了类之后，就可以用类定义对象（object）了。对象又可以称为实例（instance）。</p>
+<h3 id="对象的声明"><a href="#对象的声明" class="headerlink" title="对象的声明"></a>对象的声明</h3><p>​        对象声明的形式：</p>
+<p>​            <strong>类（名）    对象名表列;</strong><br>例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Point p1,p2;</span><br></pre></td></tr></table></figure>
+
+<p>​        声明对象后还必须创建对象才能使用对象。</p>
+<h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p>​        对象创建的形式：</p>
+<p>​            <strong>new    构造方法()</strong><br>如：</p>
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Point</span>();</span><br></pre></td></tr></table></figure>
+
+<p>​        可以通过赋值的形式给这个对象一个名字。如前面定义的对象名p1，可以用p1表示创建的对象：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">p1</span> = new Point()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a>对象的使用</h2><p>​        使用对象的形式：</p>
+<p>​            <strong>对象名.域</strong></p>
+<p>​            <strong>对象名.方法名([实际参数表列])</strong></p>
+<p><strong><em>创建一个对象后，这个对象就有自己的属性和行为。通过对象名访问域或方法，只能是对象本身的域或方法，而不能是其它对象的域或方法。</em></strong></p>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><p>​        创建对象时通过<em>“new”</em>运算符调用类中的构造方法。如果类中没有相应的构造方法，则不能创建对象。所以，在定义类时应该定义<strong>构造方法</strong>。</p>
+<p><strong><em>在一个类中可以定义多个构造方法，形成构造方法的重载。</em></strong></p>
+<p><strong><em>利用重载的构造方法可以创建不同初始状态的对象。</em></strong></p>
+<p>​        构造方法的定义形式：</p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">方法名<span class="comment">([形参表列])</span> &#123;</span><br><span class="line"><span class="comment">//…..方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象的内存模型"><a href="#对象的内存模型" class="headerlink" title="对象的内存模型"></a>对象的内存模型</h2><p>​        语句：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">p2</span> = new Point(<span class="number">5</span>,<span class="number">8</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p>​        创建一个Point类的对象并用对象名p2表示。</p>
+<p>​        用对象名表示对象，就是对象在内存中的表示方法。如图4-7所示。</p>
+<img src="/images/%E7%B1%BB%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/%E5%9B%BE4-7%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png" alt="图4-7 对象的内存模型" style="zoom:67%;" />
+
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>​        this是当前对象，也可以看作是当前对象的别名（当前对象名）。</p>
+<p>​        哪一对象调用这个方法，this就表示的是哪一个对象。</p>
+<p>​        因为<strong><em>当局部变量与域名重名时，在方法中只能访问到局部变量。如果想访问同名的域，就需要在域名前加上this，表示是当前对象中的域，而不是局部变量。</em></strong></p>
+<p>例：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">​	<span class="keyword">int</span> x,y;<span class="comment">//域，点的位置</span></span><br><span class="line">​	Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y) &#123; <span class="comment">//有两个参数的构造方法</span></span><br><span class="line">​		<span class="keyword">this</span>.x = x;</span><br><span class="line">​		<span class="keyword">this</span>.y = y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		System.out.<span class="built_in">println</span>(<span class="string">"("</span>+x+<span class="string">","</span>+y+<span class="string">")"</span>);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><h3 id="基本数据类型作方法的参数"><a href="#基本数据类型作方法的参数" class="headerlink" title="基本数据类型作方法的参数"></a>基本数据类型作方法的参数</h3><p>​        如果参数是基本数据类型，当这个方法被调用时，运行时系统会为形式参数开辟新的存储单元。所以，即使实际参数是一个变量，它与形参也不是同一个存储单元，形参的值改变了，实际参数的值不会变化。</p>
+<h3 id="对象名作方法的参数"><a href="#对象名作方法的参数" class="headerlink" title="对象名作方法的参数"></a>对象名作方法的参数</h3><p>​        因为对象名的值就是对象在内存中的地址，所以，当对象名作方法的参数时，是将对象的地址传递到被调方法中。这样，在被调用方法中的形参与主调方法中的实参指的是同一个对象。</p>
+<h3 id="数组名作方法的参数"><a href="#数组名作方法的参数" class="headerlink" title="数组名作方法的参数"></a>数组名作方法的参数</h3><p>数组名表示数组在内存中的起始地址。所以用数组名作方法的参数时，是将数组在内存中的<strong>起始地址</strong>传递到被调方法中，在被调用方法中就可以通过数组起始地址访问到数组中的每一个元素。</p>
+<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><h3 id="对象数组的定义"><a href="#对象数组的定义" class="headerlink" title="对象数组的定义"></a>对象数组的定义</h3><p>​        先声明一个对象数组名。声明形式：</p>
+<p>​            <strong>类名    对象数组名[];</strong></p>
+<p>​        再创建对象数组，形式：</p>
+<p>​            <strong>对象数组名    =    new 类名[数组长度];</strong></p>
+<p>​        例如，平面上有若干个点，可以用一个点类的对象数组表示：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="type">Point</span> p[] = <span class="built_in">new</span> <span class="type">Point</span>[<span class="number">10</span>]; //是否与<span class="type">Point</span> p[]; p[]=<span class="built_in">new</span> <span class="type">Point</span>[<span class="number">10</span>];等价？</span><br></pre></td></tr></table></figure>
+
+<p>​        还需要调用构造方法创建每一个对象。例如，让对象数组p中的每个元素都表示一个对象，可以使用循环：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(int <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;p.<span class="built_in">length</span>;<span class="built_in">i</span>++)</span><br><span class="line">	p[<span class="built_in">i</span>]=new Point();</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象数组初始化"><a href="#对象数组初始化" class="headerlink" title="对象数组初始化"></a>对象数组初始化</h3><p>​        在声明数组时就使数组中的每一个元素表示一个对象，称为对象数组初始化。        </p>
+<p>​        对象数组初始化形式：</p>
+<p>​            <strong>类名    对象数组名[]    =    {对象表列};</strong></p>
+<h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><p>​        关键字static用于修饰域和方法。用static修饰的域和方法称为类域和类方法，或称为静态域和静态方法。</p>
+<h3 id="static修饰域"><a href="#static修饰域" class="headerlink" title="static修饰域"></a>static修饰域</h3><p>​        这种方式有两个缺点，一个是容易遗漏，二是没有做到数据封装。</p>
+<p>​        将计数器变量定义在类中，每创建一个对象时，就在构造方法中使计数器增1，这样可以保证不遗漏，并做到数据封装。</p>
+<p>​        <em>程序中共创建了5个对象，每个对象的counter都是1。采用这种封装方式也达不到目的。</em></p>
+<p>​        <em>可以用关键字static修饰域。当用static修饰一个或多个域后，不论用这个类创建多少个对象，这些对象都有共同的一个或多个域，而不是每个对象独有的域。</em></p>
+<p>​        声明静态域的形式：</p>
+<p>​        数据类型 static 域名[=初值];</p>
+<p>​        一次可以声明多个静态域，默认值（不初始化）为0。</p>
+<p>​        因为静态域是一个类的所有对象的共同属性，所以又可以将静态域称为类域，可以通过类名直接访问，如例4-16中：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">​	<span class="keyword">int</span> x,y;</span><br><span class="line">​	**<span class="keyword">static</span> <span class="keyword">int</span> counter=<span class="number">0</span>;**<span class="comment">//不初始化也是0（默认）</span></span><br><span class="line"></span><br><span class="line">​	Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y) &#123;</span><br><span class="line">​		<span class="keyword">this</span>.x=x;</span><br><span class="line">​		<span class="keyword">this</span>.y=y;</span><br><span class="line">​		counter++;<span class="comment">//创建对象后增加1</span></span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		System.out.<span class="built_in">println</span>(<span class="string">"("</span>+x+<span class="string">","</span>+y+<span class="string">")"</span>);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example4_16</span> &#123;</span></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span> args[])</span> </span>&#123;</span><br><span class="line">​		<span class="comment">//可以通过类名访问静态域</span></span><br><span class="line">​		System.out.<span class="built_in">println</span>(<span class="string">"开始时对象数："</span>+**Point.counter**);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        多数情况下应该通过类名访问，因为是类的属性。</p>
+<h3 id="static修饰方法"><a href="#static修饰方法" class="headerlink" title="static修饰方法"></a>static修饰方法</h3><p>​        static修饰的方法称为类方法或静态方法，可以通过对象名访问，更多的是通过类名访问。</p>
+<p>​        定义类方法的主要目的是用类方法访问类域。定义类方法的形式：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">static 方法类型 方法名(<span class="selector-attr">[形参表列]</span>) &#123;</span><br><span class="line"><span class="comment">//……方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Deprecated注解"><a href="#Deprecated注解" class="headerlink" title="@Deprecated注解"></a>@Deprecated注解</h2><p>​        注解用于对程序或数据进行说明。</p>
+<p>​        @Deprecated是注解中的一种，表示它所注解的域或方法已经过时，不建议再使用。当然，使用也可以。<br>使用时，将“@Deprecated”放在被注解的域或方法的前面。</p>
+<p>例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">​	<span class="keyword">int</span> x,y;</span><br><span class="line">​	<span class="meta">@Deprecated</span><span class="comment">//表示counter过时</span></span><br><span class="line">​	<span class="keyword">static</span> <span class="keyword">int</span> counter=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">​	Point(<span class="keyword">int</span> x,<span class="keyword">int</span> y) &#123;</span><br><span class="line">​		setPosition(x,y);</span><br><span class="line">​		counter++;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">void</span> <span class="title">setPosition</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">​		<span class="keyword">this</span>.x=x;</span><br><span class="line">​		<span class="keyword">this</span>.y=y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="meta">@Deprecated</span><span class="comment">//表示move方法过时</span></span><br><span class="line">​	<span class="function"><span class="keyword">void</span> <span class="title">moveTo</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><span class="comment">//移动到(x,y) &#123;</span></span></span><br><span class="line"><span class="function">​		<span class="keyword">this</span>.x</span>=x;</span><br><span class="line">​		<span class="keyword">this</span>.y=y;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​		System.out.println(<span class="string">"("</span>+x+<span class="string">","</span>+y+<span class="string">")"</span>);</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术</category>
